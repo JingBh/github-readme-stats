@@ -94,7 +94,6 @@ const createLanguageTextNode = ({ langs, y }) => {
  * @param {string} args.percent Percentage of the text node item.
  * @param {boolean} args.hideProgress Whether to hide the progress bar.
  * @param {string} args.progressBarColor The color of the progress bar.
- * @param {string} args.progressBarBackgroundColor The color of the progress bar background.
  */
 const createTextNode = ({
   id,
@@ -104,7 +103,6 @@ const createTextNode = ({
   percent,
   hideProgress,
   progressBarColor,
-  progressBarBackgroundColor,
 }) => {
   const staggerDelay = (index + 3) * 150;
 
@@ -115,10 +113,9 @@ const createTextNode = ({
         y: 4,
         progress: percent,
         color: progressBarColor,
+        progressBarBackgroundColor: "#ddd",
         width: 220,
-        // @ts-ignore
         name: label,
-        progressBarBackgroundColor,
         delay: staggerDelay + 300,
       });
 
@@ -297,8 +294,6 @@ const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
               percent: language.percent,
               // @ts-ignore
               progressBarColor: titleColor,
-              // @ts-ignore
-              progressBarBackgroundColor: textColor,
               hideProgress: hide_progress,
             });
           })
